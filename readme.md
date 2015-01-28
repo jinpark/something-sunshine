@@ -1,5 +1,6 @@
 ##How to add a new post
 
+TLDR: Look at https://raw.githubusercontent.com/jinpark/something-sunshine/gh-pages/_posts/2015-01-28-welcome-to-jekyll.markdown?token=ABwyBIXHQcKm36PHHe0qebenp9LOoNegks5U0kcswA%3D%3D as an example
 
 https://github.com/blog/1327-creating-files-on-github
 
