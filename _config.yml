@@ -1,7 +1,7 @@
 # Site settings
 title: Something Sunshine
 email: ahnmin@somethingsunshine.com
-description: >
+description: > # this means to ignore newlines until "baseurl:"
 	Co-hosts Bobby and Ahnmin discuss their favorite films, music, television shows, and videogames.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://somethingsunshine.com" # the base hostname & protocol for your site
