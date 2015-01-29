@@ -1,21 +1,25 @@
 ---
 layout: default
 ---
-
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        verticalCentered: true,
+        css: true,
+        anchors: ['listen', 'playlist']
+      });
+    });
+  </script>
 <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
+  <ul class="post-list">  
+    <div id="fullpage">
+      <div class="section" id="section0" data-anchor="listen"><h1><a href="#playlist">LISTEN</a></h1></div>
+      <div class="section" id="section1" data-anchor="playlist">
+        <div class="center half">
+          {% include soundcloud_playlist.html playlist_id=site.playlist_id %}   
+        </div>
+      </div>
+  </div>
   </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
