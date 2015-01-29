@@ -23,7 +23,9 @@ layout: default
       </div>
       <div class="section" id="section1" data-anchor="playlist">
         <div class="center half">
-          {% include soundcloud_playlist.html playlist_id=site.playlist_id %}   
+          {% for post in site.posts limit:1 %}
+            {% include soundcloud_single.html track_id=post.track_id %}   
+          {% endfor %}
         </div>
       </div>
   </div>
