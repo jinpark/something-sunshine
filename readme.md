@@ -1,20 +1,26 @@
 ##How to add a new post
 
-TLDR: Look at https://raw.githubusercontent.com/jinpark/something-sunshine/gh-pages/_posts/2015-01-28-welcome-to-jekyll.markdown?token=ABwyBIXHQcKm36PHHe0qebenp9LOoNegks5U0kcswA%3D%3D as an example
+TLDR: Look at https://github.com/jinpark/something-sunshine/edit/gh-pages/_posts/2015-01-28-Something-About-Recapping-2014.markdown as an example and copy paste it into a new file, keeping the same naming convention. Change everything there that looks like you should change. Bam, new post
+
+---
+
+*Create new File*
 
 https://github.com/blog/1327-creating-files-on-github
 
-Naming convention
+*Naming convention*
 `YYYY-MM-DD-episode-title.markdown`
 
+
 #Front matter
+On top of the post add whats below and change whats needed
 ```
 ---
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2015-01-28 15:24:00
 categories: jekyll update
-soundcloud_id: 42618806
+track_id: 42618806
 ---
 ```
 
