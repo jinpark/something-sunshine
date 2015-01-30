@@ -3,12 +3,21 @@
  * @author Vitor Venturin <vitorventurin@gmail.com>
  * 23-09-2013
  */
-function playEventHandler (song) {  
+
+// function playEventHandler (song) {  
+// 	return function (eventData) {
+// 		song.getCurrentSound(function (sound) {
+// 				setTimeout(function() {
+// 					window.soundB = sound.title;
+// 				},1);
+// 		});
+// 	}
+// }
+
+function playEventHandler (song) {
 	return function (eventData) {
 		song.getCurrentSound(function (sound) {
-				setTimeout(function() {
-					window.soundB = sound.title;
-				},1);
+			ga('send', 'event', 'SC_play', sound.title, calcT(window.t));
 		});
 	}
 }
@@ -24,24 +33,27 @@ function playProgressEventHandler (song) {
 function pauseEventHandler (song) {
 	return function (eventData) {
 		song.getCurrentSound(function (sound) {
-			ga('send', 'event', 'SC_pause', window.soundB, calcT(window.t));
+			ga('send', 'event', 'SC_pause', sound.title, calcT(window.t));
 		});
 	}
 }
 
-function finishEventHandler (song) {  
+function clickDownloadEventHandler (song) {
 	return function (eventData) {
 		song.getCurrentSound(function (sound) {
-			ga('send', 'event', 'SC_complete', sound.title, '100');
+			ga('send', 'event', 'SC_download', sound.title, calcT(window.t));
 		});
 	}
 }
+
 
 function seekEventHandler (song) {  
 	return function (eventData) {
 		song.getCurrentSound(function (sound) {
 			if (eventData.relativePosition === 0) {
-				ga('send', 'event', 'SC_complete', window.soundB, '100');
+				ga('send', 'event', 'SC_complete', sound.title, '100');
+			} else {
+				ga('send', 'event', 'SC_seek', sound.title, calcT(window.t));
 			}
 		});
 	}
@@ -60,8 +72,8 @@ $(document).ready(function() {
 			song.bind(SC.Widget.Events.PLAY_PROGRESS, playProgressEventHandler(song));
 			song.bind(SC.Widget.Events.PLAY, playEventHandler(song));
 			song.bind(SC.Widget.Events.PAUSE, pauseEventHandler(song));
-			//song.bind(SC.Widget.Events.FINISH, finishEventHandler(song));
 			song.bind(SC.Widget.Events.SEEK, seekEventHandler(song));
+			song.bind(SC.Widget.Events.CLICK_DOWNLOAD, clickDownloadEventHandler(song));
 		}
 	}
 });
