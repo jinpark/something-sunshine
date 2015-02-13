@@ -23,9 +23,20 @@ layout: default
       </div>
       <div class="section" id="section1" data-anchor="playlist">
         <div class="center half">
-          {% for post in site.posts limit:1 %}
-            {% include soundcloud_single.html track_id=post.track_id %}   
-          {% endfor %}
+          <div class="left cf">
+            <div class="iframe-wrapper">
+              {% for post in site.posts limit:1 %}
+                {% include soundcloud_single.html track_id=post.track_id %}   
+              {% endfor %}
+            </div>
+          </div>
+          <div class="right cf">
+            <div class="post-wrapper">
+              {% for post in site.posts limit:1 %}
+                {{post.content}}   
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
   </div>
