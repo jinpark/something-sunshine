@@ -48,14 +48,8 @@ $on-laptop:        800px;
 }
 
 .half {
-    // width: 50%;
-    // height: 50%;
-}
-
-@include media-query($on-palm) {
-    .half {
-        width: 100%;
-    }
+    width: 50%;
+    height: 50%;
 }
 
 .flowtype {
@@ -80,45 +74,6 @@ $on-laptop:        800px;
 #section1 {
 	background: linear-gradient(#4BBFC3,#7BAABE);
 }
-
-div.left {
-    float: left;
-    width: 50%;
-}
-
-div.left .iframe-wrapper {
-    width: 50%;
-    margin: auto;
-}
-
-div.right {
-    float: right;
-    width: 50%;
-}
-
-div.right .post-wrapper {
-    width: 50%;
-    margin: auto;
-    color: white;
-}
-
-@include media-query($on-palm) {
-    div.left, div.right {
-        float: none;
-        width: 100%;
-    }
-}
-
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
