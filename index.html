@@ -6,7 +6,7 @@ layout: default
       $('#fullpage').fullpage({
         verticalCentered: true,
         css: true,
-        anchors: ['listen', 'playlist']
+        anchors: ['listen', 'playlist0', 'playlist1']
       });
       $('.flowtype').flowtype({
         fontRatio : 7
@@ -18,16 +18,16 @@ layout: default
     <div id="fullpage">
       <div class="section" id="section0" data-anchor="listen">
         <div class="flowtype">
-          <h1><a href="#playlist">LISTEN</a></h1>          
+          <h1><a href="#playlist-0">LISTEN</a></h1>          
         </div>
       </div>
-      <div class="section" id="section1" data-anchor="playlist">
+      {% for post in site.posts%}
+      <div class="section" id="section{{ forloop.index + 1 }}" data-anchor="playlist-{{ forloop.index + 1 }}">
         <div class="center half">
-          {% for post in site.posts limit:1 %}
             {% include soundcloud_single.html track_id=post.track_id %}   
-          {% endfor %}
         </div>
       </div>
+      {% endfor %}
   </div>
   </ul>
 
