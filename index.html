@@ -6,7 +6,7 @@ layout: default
       $('#fullpage').fullpage({
         verticalCentered: true,
         css: true,
-        anchors: ['listen', {% for post in site.posts %}{% if forloop.first %}'latest', {% else %}'section-{{ forloop.index0 }}', {% endif %}{% endfor %}]
+        anchors: ['listen', {% for post in site.posts %}{% if forloop.first %}'latest', {% else %}'episode-{{ forloop.index0 }}', {% endif %}{% endfor %}]
       });
       $('.flowtype').flowtype({
         fontRatio : 7
