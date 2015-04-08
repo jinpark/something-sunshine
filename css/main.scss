@@ -71,14 +71,9 @@ $on-laptop:        800px;
     }
 }
 
-#latest-episode {
-	background: linear-gradient(#4BBFC3,#64B4C1);
+#fullpage {
+    background: linear-gradient(#4BBFC3,#7BAABE);
 }
-
-#section-1 {
-    background: linear-gradient(#64B4C1,#7BAABE);
-}
-
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import

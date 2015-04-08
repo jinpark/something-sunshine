@@ -6,7 +6,7 @@ layout: default
       $('#fullpage').fullpage({
         verticalCentered: true,
         css: true,
-        anchors: ['listen', 'latest', 'episode-1']
+        anchors: ['listen', {% for post in site.posts %}{% if forloop.first %}'latest', {% else %}'section-{{ forloop.index0 }}', {% endif %}{% endfor %}]
       });
       $('.flowtype').flowtype({
         fontRatio : 7
@@ -33,7 +33,7 @@ layout: default
       </div>
       {% endfor %}
   </div>
-  </ul>
+</ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
