@@ -75,6 +75,11 @@ $on-laptop:        800px;
     background: linear-gradient(#4BBFC3,#7BAABE);
 }
 
+audio.audio-player {
+    height: 50%;
+    width: 100%;
+}
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
