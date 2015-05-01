@@ -1,0 +1,42 @@
+---
+layout: default
+---
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        verticalCentered: true,
+        css: true,
+        anchors: ['listen', {% for post in site.posts %}{% if forloop.first %}'latest', {% else %}'episode-{{ forloop.index0 }}', {% endif %}{% endfor %}]
+      });
+      $('.flowtype').flowtype({
+        fontRatio : 7
+      });
+    });
+  </script>
+<div class="home">
+  <ul class="post-list">  
+    <div id="fullpage">
+      <div class="section" id="listen-section" data-anchor="listen">
+        <div class="flowtype">
+          <h1><a href="#latest">LISTEN</a></h1>          
+        </div>
+      </div>
+      {% for post in site.posts %}
+      {% if forloop.first %}
+      <div class="section" id="latest-episode" data-anchor="latest">
+      {% else %}
+      <div class="section" id="section-{{ forloop.index0 }}" data-anchor="episode-{{ forloop.index0 }}">
+      {% endif %}
+        <div class="center half">
+          <audio controls class="audio-player">
+            <source src="{{post.s3_url}}" type="audio/mp3">
+          </audio>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+</ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
